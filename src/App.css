@@ -5,6 +5,25 @@
   text-align: center;
 }
 
+/* styling the hero section for the header */
+.hero h1 {
+  font-family: 'Kenia', sans-serif;
+  text-transform: uppercase;
+  font-size: 5rem;
+}
+
+.hero  { 
+ background-image: url("/src/assets/backgroundCute.png");
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-position: center;
+ border-radius: 20px;
+ padding: 10rem;
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

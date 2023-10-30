@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import useContentful from './hooks/useContentful'
 import './App.css'
+import Header from './components/Header';
 
 // create recipeCard component 
 // create useContentful hook ✅
@@ -22,6 +23,8 @@ console.log(recipes)
 
   return (
     <>
+    <Header />
+    <h2>Recipes</h2>
 {!recipes ? <p>let's cook something together</p>: recipes.map((item) => {
   return (
 // create recipe Card component styling with bootstrap
