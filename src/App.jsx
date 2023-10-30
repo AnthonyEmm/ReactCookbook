@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react'
 import useContentful from './hooks/useContentful'
 import './App.css'
 import Header from './components/Header';
+import { Spinner } from '@chakra-ui/react'
+import RecipeCard from './components/RecipeCard';
+import { Card, CardHeader, CardBody, CardFooter, Stack, Heading, Divider, Text, Image } from '@chakra-ui/react'
+
 
 // create recipeCard component 
 // create useContentful hook ✅
@@ -25,15 +29,15 @@ console.log(recipes)
     <>
     <Header />
     <h2>Recipes</h2>
-{!recipes ? <p>let's cook something together</p>: recipes.map((item) => {
+{!recipes ? <Spinner
+  thickness='4px'
+  speed='0.65s'
+  emptyColor='gray.200'
+  color='blue.500'
+  size='xl'
+/>: recipes.map((recipe) => {
   return (
-// create recipe Card component styling with bootstrap
-
-  <div key={item.id}>
-    <h2>{item.title}</h2>
-    <img src={item.image} alt={item.title} />
-    <p>{item.description}</p>
-    </div>
+<RecipeCard key={recipe.id} recipe={recipe}/>
   )
 }
 
