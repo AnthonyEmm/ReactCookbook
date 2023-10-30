@@ -1,7 +1,12 @@
 import React from "react";
-import { Card, CardHeader, CardBody, CardFooter, Stack, Heading, Divider, Text, Image } from '@chakra-ui/react'
+import { useState } from "react";
+import { Card, CardHeader, CardBody, CardFooter, Stack, Heading, Divider, Text, Image, Button, Collapse } from '@chakra-ui/react'
+
 
 const RecipeCard = ({recipe}) => {
+    const [show, setShow] = useState(false)
+    const handleToggle = () => setShow(!show)
+
     return(
 <Card maxW='sm'>
   <CardBody>
@@ -12,9 +17,13 @@ const RecipeCard = ({recipe}) => {
     />
     <Stack mt='6' spacing='3'>
       <Heading size='md'>{recipe.title}</Heading>
-      <Text>
+
+      <Collapse startingHeight={67} in={show}>
       {recipe.description}
-      </Text>
+      </Collapse>
+      <Button size='sm' onClick={handleToggle} mt='1rem'>
+        Read {show ? 'Less' : 'More'}
+      </Button>
     </Stack>
   </CardBody>
 </Card>)
