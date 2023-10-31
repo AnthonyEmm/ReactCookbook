@@ -18,11 +18,8 @@ function App() {
   return (
     <>
       <Header />
-      <h2>Recipes</h2>
-
           <Routes>
-            <Route path="/" element={<h1>REcipes loading</h1>} />
-            <Route path="/recipes" element={<Overview />} />
+            <Route path="/" element={<Overview />} />
             <Route path="/recipes/:someId" element={<Recipes />} />
           </Routes>
     </>

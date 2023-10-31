@@ -29,7 +29,8 @@ const Overview = () => {
     <>
       <SimpleGrid
         spacing={4}
-        templateColumns="repeat(auto-fill, minmax(600px, 1fr))"
+        templateColumns="repeat(auto-fill, minmax(300px, 1fr))"
+        p={7}
       >
         {!recipes ? (
           <Spinner
@@ -38,6 +39,7 @@ const Overview = () => {
             emptyColor="gray.200"
             color="blue.500"
             size="xl"
+            className="spinner"
           />
         ) : (
           recipes.map((recipe) => {
