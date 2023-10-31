@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { Card, CardHeader, CardBody, CardFooter, Stack, Heading, Divider, Text, Image, Button, Collapse } from '@chakra-ui/react'
+import { Link } from "react-router-dom";
 
 
 const RecipeCard = ({recipe}) => {
     const [show, setShow] = useState(false)
-    const handleToggle = () => setShow(!show)
+
+
 
     return(
 <Card maxW='sm'>
@@ -17,15 +19,11 @@ const RecipeCard = ({recipe}) => {
     />
     <Stack mt='6' spacing='3'>
       <Heading size='md'>{recipe.title}</Heading>
-      <Collapse startingHeight={67} in={show}>
-      {recipe.ingredients}
-      </Collapse>
-      <Collapse startingHeight={67} in={show}>
-      {recipe.description}
-      </Collapse>
-      <Button size='sm' onClick={handleToggle} mt='1rem'>
-        Read {show ? 'Less' : 'More'}
-      </Button>
+      <Link to={`/recipes/${recipe.id}`}>
+        <Button size='sm' mt='1rem'>
+          Cook me
+        </Button>
+      </Link>
     </Stack>
   </CardBody>
 </Card>)
