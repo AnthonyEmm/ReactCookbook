@@ -61,6 +61,7 @@
   font-weight: 600;
   margin-top: 30px;
   margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 .card-text {
@@ -80,6 +81,7 @@
   border-radius: 5px;
   width: 100%;
   box-shadow: 0 4px 6px rgba(0.9, 0.7, 0.8, 0.8);
+  text-transform: uppercase;
 }
 
 .details p {
