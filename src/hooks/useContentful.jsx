@@ -25,12 +25,13 @@ export default function useContentful() {
     const sanitizedRecipes = recipes.items.map((recipe)=>{
         const title = recipe.fields.recipetitle
         const description = recipe.fields.description
+        const shortdescription = recipe.fields.shortDescription
         const image = recipe.fields.image.fields.file.url
         const id = recipe.sys.id
         const ingredients = recipe.fields.ingredientstext
         // figure out what to do with the ingredients
 
-        return {title, description, image, id, ingredients}
+        return {title, description, image, id, ingredients, shortdescription}
     }
 
     )
