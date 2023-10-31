@@ -20,20 +20,22 @@ export default function useContentful() {
             select: "fields"
         }
     ); 
+    console.log(recipes)
     
     const sanitizedRecipes = recipes.items.map((recipe)=>{
         const title = recipe.fields.recipetitle
         const description = recipe.fields.description
         const image = recipe.fields.image.fields.file.url
         const id = recipe.sys.id
+        const ingredients = recipe.fields.ingredientstext
         // figure out what to do with the ingredients
 
-        return {title, description, image, id}
+        return {title, description, image, id, ingredients}
     }
 
     )
 
-    console.log(recipes.items)
+
     return sanitizedRecipes; // having to return the content otherwise the data in apps will be undefined
  }
  // catch part for if it fails

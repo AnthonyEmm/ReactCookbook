@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react'
 import useContentful from './hooks/useContentful'
 import './App.css'
+import Header from './components/Header';
+import { Spinner, SimpleGrid } from '@chakra-ui/react'
+import RecipeCard from './components/RecipeCard';
+
 
 // create recipeCard component 
 // create useContentful hook ✅
@@ -22,19 +26,24 @@ console.log(recipes)
 
   return (
     <>
-{!recipes ? <p>let's cook something together</p>: recipes.map((item) => {
-  return (
-// create recipe Card component styling with bootstrap
+    <Header />
+    <h2>Recipes</h2>
+    <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(500px, 1fr))'>
+      {!recipes ? <Spinner
+        thickness='4px'
+        speed='0.65s'
+        emptyColor='gray.200'
+        color='blue.500'
+        size='xl'
+          />:  
 
-  <div key={item.id}>
-    <h2>{item.title}</h2>
-    <img src={item.image} alt={item.title} />
-    <p>{item.description}</p>
-    </div>
-  )
-}
+      recipes.map((recipe) => {
+        return (<RecipeCard key={recipe.id} recipe={recipe}/> )
+      })
 
-)}
+      }
+     </SimpleGrid>
+
     </>
   )
 }
