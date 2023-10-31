@@ -17,7 +17,9 @@ const RecipeCard = ({recipe}) => {
     />
     <Stack mt='6' spacing='3'>
       <Heading size='md'>{recipe.title}</Heading>
-
+      <Collapse startingHeight={67} in={show}>
+      {recipe.ingredients}
+      </Collapse>
       <Collapse startingHeight={67} in={show}>
       {recipe.description}
       </Collapse>
