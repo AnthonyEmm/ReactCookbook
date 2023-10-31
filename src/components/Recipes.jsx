@@ -16,7 +16,6 @@ const Recipes = () => {
         communal gatherings and celebrations, offering an explosion of taste and
         tradition in every bite.
       </p>
-      <button className="btn">Read More</button>
     </div>
   );
 };
