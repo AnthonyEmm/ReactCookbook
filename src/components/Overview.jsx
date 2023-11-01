@@ -45,7 +45,7 @@ const Overview = () => {
 
   return (
     <>
-    <Flex mt={7}> 
+    <Flex mt={7} pr={7} pl={7}> 
     <Box><Heading as='h2' size='xl'>Recipes</Heading></Box>
     <Spacer />
     <Box><form onSubmit={handleSubmit}><InputGroup>
@@ -58,7 +58,7 @@ const Overview = () => {
         
      </InputGroup></form></Box>
      <Spacer />
-     <Box><Select variant='filled' placeholder='Filled' >
+     <Box><Select variant='filled' placeholder='Sort by: Newest' >
         <option value='option1'>Option 1</option>
        <option value='option2'>Option 2</option>
         <option value='option3'>Option 3</option>
