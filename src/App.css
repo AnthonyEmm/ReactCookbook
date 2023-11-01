@@ -12,6 +12,10 @@
   font-family: "Kenia", sans-serif;
   text-transform: uppercase;
   font-size: 5rem;
+<<<<<<< HEAD
+=======
+  color: black;
+>>>>>>> a0062f75016c39ec07051fc1da380c43facfcce2
 }
 
 .hero {
@@ -19,12 +23,18 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
   border-radius: 20px;
   padding: 10rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  font-size: 1.125rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
 }
+
+/* styling the card container  */
 .container {
   display: grid;
   grid-template-columns: 2fr 2fr;
@@ -38,11 +48,11 @@
 .card {
   width: 100%;
   height: auto;
-  border: 1px solid #ccc;
+  border: 1px solid #8a8080;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
-  background-color: #daddb1;
+  background-color: #ffc436;
 }
 
 .card-image {
@@ -70,12 +80,14 @@
   margin-top: 20px;
 }
 
+/* styling the details h1 and p tags */
+
 .details h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 30px;
   font-weight: 600;
   margin-bottom: 10px;
-  background-color: #daddb1;
+  background-color: #ffc436;
   padding: 10px;
   border-radius: 5px;
   width: 100%;
@@ -94,7 +106,7 @@
   margin-right: 15px;
   padding: 20px;
   border: 1px;
-  background-color: #daddb1;
+  background-color: #ffc436;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0.9, 0.7, 0.8, 0.8);
 }
