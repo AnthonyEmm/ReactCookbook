@@ -12,10 +12,6 @@
   font-family: "Kenia", sans-serif;
   text-transform: uppercase;
   font-size: 5rem;
-<<<<<<< HEAD
-=======
-  color: black;
->>>>>>> a0062f75016c39ec07051fc1da380c43facfcce2
 }
 
 .hero {
@@ -32,6 +28,70 @@
   font-size: 1.125rem;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
+}
+
+.next {
+  display: inline-block;
+  width: 20%;
+  height: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  border: 1px black;
+  border-radius: 10px;
+  color: black;
+  text-decoration: none;
+  background-color: #ffc436;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
+}
+
+.next:hover {
+  color: white;
+  background-color: #ffc436;
+  box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.return-btn {
+  display: inline-block;
+  width: 20%;
+  height: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  border: 1px black;
+  border-radius: 10px;
+  color: black;
+  text-decoration: none;
+  background-color: #ffc436;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
+}
+
+.return-btn:hover {
+  color: white;
+  background-color: #ffc436;
+  box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  text-decoration: none;
+  transform: translateY(-2px);
 }
 
 /* styling the card container  */

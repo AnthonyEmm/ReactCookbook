@@ -7,6 +7,9 @@ import RecipeCard from "./components/RecipeCard";
 import Recipes from "./components/Recipes";
 import Overview from "./components/Overview";
 import { Routes, Route, NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import GoBack from "./components/GoBack";
+import Next from "./components/Next";
 
 // create recipeCard component ✅
 // create useContentful hook ✅
@@ -17,20 +20,12 @@ function App() {
   return (
     <>
       <Header />
-<<<<<<< HEAD
           <Routes>
             <Route path="/" element={<Overview />} />
             <Route path="/recipes/:someId" element={<Recipes />} />
           </Routes>
-=======
-      <h1>Recipes</h1>
-
-      <Routes>
-        <Route path="/" element={<h1>Recipes Loading..</h1>} />
-        <Route path="/recipes" element={<Overview />} />
-        <Route path="/recipes/:someId" element={<Recipes />} />
-      </Routes>
->>>>>>> a0062f75016c39ec07051fc1da380c43facfcce2
+      <Next />
+      <GoBack />
     </>
   );
 }
