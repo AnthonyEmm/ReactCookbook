@@ -18,7 +18,7 @@ export default function useContentful() {
         {
             content_type: "recipe", 
             select: "fields",
-            query: {search}
+            query: search
         }
     ); 
     console.log(recipes)
