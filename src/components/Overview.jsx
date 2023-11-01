@@ -8,14 +8,14 @@ import { Routes, Route, NavLink } from "react-router-dom";
 
 // create recipeCard component ✅
 // create useContentful hook ✅
-// show recipeCard with data from contentful on page
+// show recipeCard with data from contentful on page ✅
 
 const Overview = () => {
   const { getData } = useContentful(); // using the function which we have created in the hook
   const [recipes, setRecipes] = useState(null); // setting up an empty useState for our recipe array
   const [search, setSearch] = useState(""); // use state which will be used for the search phrase
 
-  useEffect(() => {
+  useEffect(() => { // this runs the very first time the page is access and contains all the entries from the api without any queries
     getData()
       .then((data) => {
         setRecipes(data);
@@ -27,12 +27,11 @@ const Overview = () => {
 
   console.log(recipes);
 
-  const handleChange = (event) => {
+  const handleChange = (event) => { // this changes the search state to the input in the search bar
     setSearch(event.target.value) 
-    console.log(search)
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event) => { // when user presses enter, the page is prevented from reloading and then the data from the api is fetched using our get data function
     event.preventDefault();
     getData(search)
       .then((data) => {
@@ -41,12 +40,12 @@ const Overview = () => {
       .catch((error) => {
         console.log(error);
       });
-      setSearch("")
+      setSearch("") // after the search is executed the input is reset by giving it an empty string
   }
 
   return (
     <>
-    <Flex mt={7}>
+    <Flex mt={7}> 
     <Box><Heading as='h2' size='xl'>Recipes</Heading></Box>
     <Spacer />
     <Box><form onSubmit={handleSubmit}><InputGroup>
