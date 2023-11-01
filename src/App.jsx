@@ -9,6 +9,7 @@ import Overview from "./components/Overview";
 import { Routes, Route, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import GoBack from "./components/GoBack";
+import Next from "./components/Next";
 
 // create recipeCard component ✅
 // create useContentful hook ✅
@@ -27,6 +28,7 @@ function App() {
         <Route path="/recipes" element={<Overview />} />
         <Route path="/recipes/:someId" element={<Recipes />} />
       </Routes>
+      <Next />
       <GoBack />
     </>
   );
