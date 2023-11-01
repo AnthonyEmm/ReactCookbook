@@ -31,6 +31,37 @@
   font-family: "Montserrat", sans-serif;
 }
 
+.return-btn {
+  width: 20%;
+  height: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  border: 1px black;
+  border-radius: 10px;
+  color: black;
+  text-decoration: none;
+  background-color: #ffc436;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
+}
+
+.return-btn:hover {
+  color: white;
+  background-color: #ffc436;
+  box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
 /* styling the card container  */
 .container {
   display: grid;
