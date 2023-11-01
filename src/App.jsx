@@ -29,6 +29,7 @@ function App() {
         <Route path="/recipes/:someId" element={<Recipes />} />
       </Routes>
       <Next />
+      <br />
       <GoBack />
     </>
   );
