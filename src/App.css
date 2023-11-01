@@ -7,7 +7,7 @@
   text-align: center;
 }
 
-body{
+body {
   /* background-color: #ECEAE7; */
   background-color: red;
 }
@@ -102,7 +102,7 @@ body{
 /* styling the card container  */
 .container {
   display: grid;
-  grid-template-columns: 2fr 2fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 2rem;
   margin: 0 auto;
   max-width: 1280px;
@@ -133,7 +133,7 @@ body{
   font-family: "Montserrat", sans-serif;
   font-size: 25px;
   font-weight: 600;
-  margin-top: 30px;
+  margin-top: 50px;
   margin-bottom: 20px;
   text-transform: uppercase;
 }
@@ -142,7 +142,7 @@ body{
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
   font-weight: 600;
-  margin-top: 20px;
+  margin-top: 35px;
 }
 
 /* styling the details h1 and p tags */
@@ -189,7 +189,7 @@ body{
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.spinner{
+.spinner {
   display: flex;
   justify-content: center;
   align-items: center;

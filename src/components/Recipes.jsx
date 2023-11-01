@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import React from "react";
 import GoBack from "./GoBack";
 
-
 const Recipes = () => {
   const { getRecipe } = useContentfulSingle(); // using the function which we have created in the hook
   const [recipe, setRecipe] = useState(null); // setting up an empty useState for our recipe
@@ -38,8 +37,9 @@ const Recipes = () => {
             <p className="card-text">{recipe.shortdescription}</p>
           </div>
           <div className="details">
-            <h1>Ingredients & Instructions</h1>
-            <p>{recipe.ingredients}</p><p>{recipe.description}</p>
+            <h1>Ingredients & Description</h1>
+            <p>{recipe.ingredients}</p>
+            <p>{recipe.description}</p>
           </div>
         </div>
       </div>
