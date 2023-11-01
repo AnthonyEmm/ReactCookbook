@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import useContentful from "../hooks/useContentful";
-import { Spinner, SimpleGrid } from "@chakra-ui/react";
+import { Spinner, SimpleGrid, Input, Heading, InputGroup, InputLeftElement, Select, Flex, Spacer, Box  } from "@chakra-ui/react";
+
+import { Search2Icon} from '@chakra-ui/icons'
 import RecipeCard from "./RecipeCard";
-import Recipes from "./Recipes";
 import { Routes, Route, NavLink } from "react-router-dom";
 
 // create recipeCard component ✅
@@ -27,6 +28,22 @@ const Overview = () => {
 
   return (
     <>
+    <Flex mt={7}>
+    <Box><Heading as='h2' size='xl'>Recipes</Heading></Box>
+    <Spacer />
+    <Box><InputGroup>
+        <InputLeftElement pointerEvents='none'>
+          <Search2Icon color='gray.300' />
+        </InputLeftElement>
+        <Input variant='filled' type='tel' placeholder='Search recipes' />
+     </InputGroup></Box>
+     <Spacer />
+     <Box><Select variant='filled' placeholder='Filled' >
+        <option value='option1'>Option 1</option>
+       <option value='option2'>Option 2</option>
+        <option value='option3'>Option 3</option>
+      </Select></Box>
+    </Flex>
       <SimpleGrid
         spacing={4}
         templateColumns="repeat(auto-fill, minmax(300px, 1fr))"
