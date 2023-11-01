@@ -20,14 +20,10 @@ function App() {
   return (
     <>
       <Header />
-
-      <h1>Recipes</h1>
-
-      <Routes>
-        <Route path="/" element={<h1>Recipes Loading..</h1>} />
-        <Route path="/recipes" element={<Overview />} />
-        <Route path="/recipes/:someId" element={<Recipes />} />
-      </Routes>
+          <Routes>
+            <Route path="/" element={<Overview />} />
+            <Route path="/recipes/:someId" element={<Recipes />} />
+          </Routes>
       <Next />
       <br />
       <GoBack />

@@ -20,6 +20,7 @@ const RecipeCard = ({recipe}) => {
     <Stack mt='6' spacing='3'>
       <Heading size='md'>{recipe.title}</Heading>
       <Link to={`/recipes/${recipe.id}`}>
+        <Text>{recipe.shortdescription}</Text>
         <Button size='sm' mt='1rem'>
           Cook me
         </Button>
