@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-// create Go back button
+// create Go back button for navigation to the previous page
 const GoBack = () => {
   const navigate = useNavigate();
   return (

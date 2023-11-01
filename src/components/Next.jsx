@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
+// create Next button to move to the next page
+
 const Next = () => {
   const navigate = useNavigate();
   return (
