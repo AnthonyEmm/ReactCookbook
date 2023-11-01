@@ -4,8 +4,7 @@ import { Spinner, SimpleGrid } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import React from "react";
 import GoBack from "./GoBack";
-import Next from "./Next";
-import { useNavigate } from "react-router-dom";
+
 
 const Recipes = () => {
   const { getRecipe } = useContentfulSingle(); // using the function which we have created in the hook
@@ -36,11 +35,11 @@ const Recipes = () => {
               className="card-image"
             />
             <h2 className="card-title">{recipe.title}</h2>
-            <p className="card-text">{recipe.description}</p>
+            <p className="card-text">{recipe.shortdescription}</p>
           </div>
           <div className="details">
             <h1>Ingredients & Instructions</h1>
-            <p>{recipe.ingredients}</p>
+            <p>{recipe.ingredients}</p><p>{recipe.description}</p>
           </div>
         </div>
       </div>

@@ -22,9 +22,10 @@ export default function useContentfulSingle() {
         const description = recipe.fields.description
         const image = recipe.fields.image.fields.file.url
         const ingredients = recipe.fields.ingredientstext
+        const shortdescription = recipe.fields.shortDescription
 
 
-        return {title, description, image, ingredients}
+        return {title, description, image, ingredients, shortdescription}
     
  
     
