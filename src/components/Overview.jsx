@@ -48,21 +48,23 @@ const Overview = () => {
     <Flex mt={7} pr={7} pl={7}> 
     <Box><Heading as='h2' size='xl'>Recipes</Heading></Box>
     <Spacer />
-    <Box><form onSubmit={handleSubmit}><InputGroup>
-        <InputLeftElement pointerEvents='none'>
-          <Search2Icon color='gray.300' />
-        </InputLeftElement>
-        
-        <Input variant='filled' type='tel' placeholder='Search recipes' value={search}
-        onChange={handleChange}/>
-        
-     </InputGroup></form></Box>
+    <Box w={500}>
+      <form onSubmit={handleSubmit}>
+        <InputGroup>
+          <InputLeftElement pointerEvents='none'>
+              <Search2Icon color='gray.300' />
+          </InputLeftElement>
+          <Input variant='filled' type='tel' placeholder='Search recipes' value={search}
+            onChange={handleChange}/>
+        </InputGroup>
+     </form>
+     </Box>
      <Spacer />
-     <Box><Select variant='filled' placeholder='Sort by: Newest' >
+     {/* <Box><Select variant='filled' placeholder='Sort by: Newest' >
         <option value='option1'>Option 1</option>
        <option value='option2'>Option 2</option>
         <option value='option3'>Option 3</option>
-      </Select></Box>
+      </Select></Box> */}
     </Flex>
       <SimpleGrid
         spacing={4}
