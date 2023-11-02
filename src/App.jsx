@@ -3,7 +3,8 @@ import Header from "./components/Header";
 import Recipes from "./components/Recipes";
 import Overview from "./components/Overview";
 import Form from "./components/Form";
-import { Routes, Route, NavLink } from "react-router-dom";
+import WelcomePage from "./components/WelcomePage";
+import { Routes, Route, NavLink, Outlet } from "react-router-dom";
 
 
 
@@ -15,11 +16,14 @@ import { Routes, Route, NavLink } from "react-router-dom";
 function App() {
   return (
     <>
-      <Header />
+      
 
       <Routes>
-        <Route path="/" element={<Overview />} />
-        <Route path="/recipes/:someId" element={<Recipes />} />
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="recipes" element={<div><Header /><Outlet/></div>}>
+          <Route path="" element={<Overview />} />
+          <Route path=":someId" element={<Recipes />} />
+        </Route>
         <Route path="/create" element={<Form />} />
       </Routes>
     </>

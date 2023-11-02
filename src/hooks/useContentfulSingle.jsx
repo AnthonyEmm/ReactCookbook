@@ -24,11 +24,12 @@ export default function useContentfulSingle() {
         const ingredients = recipe.fields.ingredientstext
         const shortdescription = recipe.fields.shortDescription 
         const ingredientlist = recipe.fields.test
+        const date = recipe.sys.createdAt
 
         // implement a date from sys.createdAt 
 
 
-        return {title, description, image, ingredients, shortdescription, ingredientlist}
+        return {title, description, image, ingredients, shortdescription, ingredientlist, date}
     
  
     
