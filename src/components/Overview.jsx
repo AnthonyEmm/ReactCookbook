@@ -20,7 +20,8 @@ const Overview = () => {
   const { getData } = useContentful(); // using the function which we have created in the hook
   const [recipes, setRecipes] = useState(null); // setting up an empty useState for our recipe array
   const [search, setSearch] = useState(""); // use state which will be used for the search phrase
-
+  const [tag, setTag] = useState()
+ 
   useEffect(() => { // this runs the very first time the page is access and contains all the entries from the api without any queries
     getData()
       .then((data) => {
@@ -39,18 +40,19 @@ const Overview = () => {
 
   const handleSubmit = (event) => { // when user presses enter, the page is prevented from reloading and then the data from the api is fetched using our get data function
     event.preventDefault();
-    getData(search)
+    getData(search, tag)
       .then((data) => {
         setRecipes(data);
       })
       .catch((error) => {
         console.log(error);
       });
-      setSearch("") // after the search is executed the input is reset by giving it an empty string
+      setSearch("") // if we want to keep the search state for the tag function this does not work!!
   }
 
   const handleTagClick = (event) => {
     console.log(event.target.value) 
+    setTag(event.target.value)
     getData(search, event.target.value).then((data) => {
       setRecipes(data);
     })
@@ -95,10 +97,12 @@ const Overview = () => {
   </GridItem>
   <GridItem area={'tabs'}>
       <Flex direction={"column"} align={"start"} gap={"3"}>
-      <Button leftIcon={<FaBowlRice />} colorScheme='gray' variant='outline' size='lg' value={"rice"}  onClick={handleTagClick}>
+
+        {/* create new button for all results - this means the state has to be reset to null */}
+      <Button leftIcon={<FaBowlRice />} colorScheme='BlackAlpha' variant='outline' size='lg' value={"rice"}  onClick={handleTagClick}>
         Rice
       </Button>
-    <Button leftIcon={<FaCarrot />} colorScheme='gray' variant='outline' size='lg' value={"veggy"} onClick={handleTagClick}>
+    <Button leftIcon={<FaCarrot />} colorScheme='WhiteAlpha' variant='outline' size='lg' value={"veggy"} onClick={handleTagClick}>
         Vegetarian
       </Button>
       <Button leftIcon={<FaDrumstickBite />} colorScheme='gray' variant='outline' size='lg' value={"chicken"} onClick={handleTagClick}>
