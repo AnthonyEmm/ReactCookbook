@@ -131,6 +131,7 @@ const Overview = () => {
             color="blue.500"
             size="xl"
             className="spinner"
+            alignSelf={"center"}
           />
         ) : (recipes.length === 0 ? <Text>No Results found</Text> :
           recipes.map((recipe) => {

@@ -41,6 +41,15 @@ const Recipes = () => {
             <p>{recipe.ingredients}</p>
             <p>{recipe.description}</p>
           </div>
+          <div className="details">
+  
+            <ol>
+              <li>this is a test</li>
+              {recipe.ingredientlist?.map( (ingredient) => {
+               return <li>{ingredient}</li>
+              } )}
+            </ol>
+          </div>
         </div>
       </div>
     )
