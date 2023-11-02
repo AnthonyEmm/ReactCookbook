@@ -1,12 +1,10 @@
-
 import "./App.css";
 import Header from "./components/Header";
 import Recipes from "./components/Recipes";
 import Overview from "./components/Overview";
 import Form from "./components/Form";
 import { Routes, Route, NavLink } from "react-router-dom";
-
-
+import WelcomePage from "./components/WelcomePage";
 
 // create recipeCard component ✅
 // create useContentful hook ✅
@@ -17,10 +15,12 @@ function App() {
   return (
     <>
       <Header />
+
       <Routes>
-        <Route path="/" element={<Overview />} />
-        <Route path="/recipes/:someId" element={<Recipes />} /> {/*change this so it is the title and not the uuid?  */}
-        <Route path="/create" element={<Form/>}/>
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="/recipes" element={<Overview />} />
+        <Route path="/recipes/:someId" element={<Recipes />} />
+        <Route path="/create" element={<Form />} />
       </Routes>
     </>
   );

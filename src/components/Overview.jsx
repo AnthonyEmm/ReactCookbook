@@ -9,7 +9,7 @@ import { Routes, Route, NavLink } from "react-router-dom";
 
 // IMPORTIN ICONS
 import { Search2Icon} from '@chakra-ui/icons'
-import { FaBellConcierge } from "react-icons/fa6";
+import { FaBowlRice, FaCarrot, FaDrumstickBite, FaFishFins, FaHippo } from "react-icons/fa6";
 
 
 // create recipeCard component ✅
@@ -50,6 +50,17 @@ const Overview = () => {
       setSearch("") // after the search is executed the input is reset by giving it an empty string
   }
 
+  const handleTagClick = (event) => {
+    console.log(event.target.value) 
+    setTag(event.target.value); 
+    getData(search, tag).then((data) => {
+      setRecipes(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
   return (
     <>
 
@@ -85,12 +96,23 @@ const Overview = () => {
     </Flex>
   </GridItem>
   <GridItem area={'tabs'}>
-  <Button leftIcon={<FaBellConcierge />} colorScheme='gray' variant='outline'>
-    Email
-  </Button>
-
-
-
+      <Flex direction={"column"} align={"start"} gap={"3"}>
+      <Button leftIcon={<FaBowlRice />} colorScheme='gray' variant='outline' size='lg' value={"rice"}  onClick={handleTagClick}>
+        Rice
+      </Button>
+    <Button leftIcon={<FaCarrot />} colorScheme='gray' variant='outline' size='lg' value={"veggy"} onClick={handleTagClick}>
+        Vegetarian
+      </Button>
+      <Button leftIcon={<FaDrumstickBite />} colorScheme='gray' variant='outline' size='lg' value={"chicken"} onClick={handleTagClick}>
+        Chicken
+      </Button>
+      <Button leftIcon={<FaFishFins />} colorScheme='gray' variant='outline' size='lg' value={"fish"} onClick={handleTagClick}>
+        Fish
+      </Button>
+      <Button leftIcon={<FaHippo />} colorScheme='gray' variant='outline' size='lg' value={"hippo"} onClick={handleTagClick}>
+        Hungry Hippo
+      </Button>
+    </Flex>
 
   </GridItem>
   <GridItem area={'main'}>
