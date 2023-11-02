@@ -6,6 +6,8 @@ import Overview from "./components/Overview";
 import Form from "./components/Form";
 import { Routes, Route, NavLink } from "react-router-dom";
 
+
+
 // create recipeCard component ✅
 // create useContentful hook ✅
 // show recipeCard with data from contentful on page ✅
@@ -17,7 +19,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Overview />} />
-        <Route path="/recipes/:someId" element={<Recipes />} />
+        <Route path="/recipes/:someId" element={<Recipes />} /> {/*change this so it is the title and not the uuid?  */}
         <Route path="/create" element={<Form/>}/>
       </Routes>
     </>

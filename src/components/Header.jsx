@@ -8,7 +8,7 @@ export default function Header() {
     <div className="hero">
       <h1>Nigerian cooking </h1>
       <Text fontSize="2xl">Recipes of authentic food from Nigeria</Text>
-      <IconButton
+      {/* <IconButton this is for test purposes please leave it here but ignore it
   isRound={true}
   variant='solid'
   colorScheme='orange'
@@ -17,7 +17,7 @@ export default function Header() {
   size='lg'
   
   icon={<AddIcon />}
-/>
+/> */}
     </div>
   );
 }

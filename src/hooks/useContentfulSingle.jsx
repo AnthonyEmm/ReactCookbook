@@ -24,6 +24,8 @@ export default function useContentfulSingle() {
         const ingredients = recipe.fields.ingredientstext
         const shortdescription = recipe.fields.shortDescription
 
+        // implement a date from sys.createdAt 
+
 
         return {title, description, image, ingredients, shortdescription}
     
