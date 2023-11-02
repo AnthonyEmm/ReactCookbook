@@ -2,9 +2,12 @@ import React from "react";
 
 export default function WelcomePage() {
   return (
-    <div>
-      <h1>Hello World!</h1>
-      <button>Explore More</button>
+    <div className="showcase">
+      <h1>Nigerian Cooking</h1>
+      <p>
+        Welcome! <br /> We showcase a variety of Nigerian delicacy recipes
+      </p>
+      <button className="w-btn">Explore More</button>
     </div>
   );
 }
