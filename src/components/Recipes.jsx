@@ -37,7 +37,7 @@ const Recipes = () => {
             <p className="card-text">{recipe.shortdescription}</p>
           </div>
           <div className="details">
-            <h1>Ingredients & Description</h1>
+            <h1>Ingredients & Instruction</h1>
             <p>{recipe.ingredients}</p>
             <p>{recipe.description}</p>
           </div>
