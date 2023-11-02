@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Recipes from "./components/Recipes";
 import Overview from "./components/Overview";
+import Form from "./components/Form";
 import { Routes, Route, NavLink } from "react-router-dom";
 
 // create recipeCard component ✅
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Overview />} />
         <Route path="/recipes/:someId" element={<Recipes />} />
+        <Route path="/create" element={<Form/>}/>
       </Routes>
     </>
   );
