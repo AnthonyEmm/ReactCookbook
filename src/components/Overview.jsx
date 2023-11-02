@@ -105,13 +105,13 @@ const Overview = () => {
     <Button leftIcon={<FaCarrot />} colorScheme='WhiteAlpha' variant='outline' size='lg' value={"veggy"} onClick={handleTagClick}>
         Vegetarian
       </Button>
-      <Button leftIcon={<FaDrumstickBite />} colorScheme='gray' variant='outline' size='lg' value={"chicken"} onClick={handleTagClick}>
+      <Button leftIcon={<FaDrumstickBite />} colorScheme='yellow' variant='solid' size='lg' value={"chicken"} onClick={handleTagClick}>
         Chicken
       </Button>
-      <Button leftIcon={<FaFishFins />} colorScheme='gray' variant='outline' size='lg' value={"fish"} onClick={handleTagClick}>
+      <Button leftIcon={<FaFishFins />} colorScheme='gray' variant='ghost' size='lg' value={"fish"} onClick={handleTagClick}>
         Fish
       </Button>
-      <Button leftIcon={<FaHippo />} colorScheme='gray' variant='outline' size='lg' value={"hippo"} onClick={handleTagClick}>
+      <Button leftIcon={<FaHippo />} colorScheme='yellow' variant='outline' size='lg' value={"hippo"} onClick={handleTagClick}>
         Hungry Hippo
       </Button>
     </Flex>
