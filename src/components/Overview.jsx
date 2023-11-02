@@ -20,7 +20,6 @@ const Overview = () => {
   const { getData } = useContentful(); // using the function which we have created in the hook
   const [recipes, setRecipes] = useState(null); // setting up an empty useState for our recipe array
   const [search, setSearch] = useState(""); // use state which will be used for the search phrase
-  const [tag, setTag] =  useState(""); // this use state helps us saving the different tags to filter from them from the api
 
   useEffect(() => { // this runs the very first time the page is access and contains all the entries from the api without any queries
     getData()
@@ -52,8 +51,7 @@ const Overview = () => {
 
   const handleTagClick = (event) => {
     console.log(event.target.value) 
-    setTag(event.target.value); 
-    getData(search, tag).then((data) => {
+    getData(search, event.target.value).then((data) => {
       setRecipes(data);
     })
     .catch((error) => {
