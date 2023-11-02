@@ -1,9 +1,6 @@
-import { useEffect, useState } from "react";
-import useContentful from "./hooks/useContentful";
+
 import "./App.css";
 import Header from "./components/Header";
-import { Spinner, SimpleGrid } from "@chakra-ui/react";
-import RecipeCard from "./components/RecipeCard";
 import Recipes from "./components/Recipes";
 import Overview from "./components/Overview";
 import { Routes, Route, NavLink } from "react-router-dom";

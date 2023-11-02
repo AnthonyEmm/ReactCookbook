@@ -11,13 +11,14 @@ export default function useContentful() {
  )
 
  // get the data using the contenttype 
- const getData = async () =>{
+ const getData = async (search) =>{ // search is now a parameter which will be givin once the function is called. this makes sure that only certain entries gets shown
  // try part for if it is successfull
  try{
     const recipes = await client.getEntries(
         {
             content_type: "recipe", 
-            select: "fields"
+            select: "fields",
+            query: search
         }
     ); 
     console.log(recipes)
