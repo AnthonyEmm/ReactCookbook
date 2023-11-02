@@ -12,6 +12,7 @@
   font-family: "Kenia", sans-serif;
   text-transform: uppercase;
   font-size: 5rem;
+  font-weight: 900;
 }
 
 .hero {
@@ -24,10 +25,48 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  font-size: 1.125rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(14, 14, 13);
 }
+
+.return-btn {
+  display: inline-block;
+  width: 15%;
+  height: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.255rem;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
+  border: 1px black;
+  border-radius: 10px;
+  color: black;
+  text-decoration: none;
+  background-color: #ffc436;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
+}
+
+.return-btn:hover {
+  color: white;
+  background-color: #ffc436;
+  box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* styling the card container  */
 .container {
   display: grid;
-  grid-template-columns: 2fr 2fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 2rem;
   margin: 0 auto;
   max-width: 1280px;
@@ -38,11 +77,11 @@
 .card {
   width: 100%;
   height: auto;
-  border: 1px solid #ccc;
+  border: 1px solid #8a8080;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
-  background-color: #daddb1;
+  background-color: #ffc436;
 }
 
 .card-image {
@@ -58,7 +97,7 @@
   font-family: "Montserrat", sans-serif;
   font-size: 25px;
   font-weight: 600;
-  margin-top: 30px;
+  margin-top: 50px;
   margin-bottom: 20px;
   text-transform: uppercase;
 }
@@ -67,15 +106,17 @@
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
   font-weight: 600;
-  margin-top: 20px;
+  margin-top: 35px;
 }
+
+/* styling the details h1 and p tags */
 
 .details h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 30px;
   font-weight: 600;
   margin-bottom: 10px;
-  background-color: #daddb1;
+  background-color: #ffc436;
   padding: 10px;
   border-radius: 5px;
   width: 100%;
@@ -94,7 +135,7 @@
   margin-right: 15px;
   padding: 20px;
   border: 1px;
-  background-color: #daddb1;
+  background-color: #ffc436;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0.9, 0.7, 0.8, 0.8);
 }
@@ -112,7 +153,7 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.spinner{
+.spinner {
   display: flex;
   justify-content: center;
   align-items: center;

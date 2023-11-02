@@ -3,6 +3,7 @@ import useContentfulSingle from "../hooks/useContentfulSingle";
 import { Spinner, SimpleGrid } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import React from "react";
+import GoBack from "./GoBack";
 
 const Recipes = () => {
   const { getRecipe } = useContentfulSingle(); // using the function which we have created in the hook
@@ -23,19 +24,23 @@ const Recipes = () => {
 
   return (
     recipe && (
-      <div className="container">
-        <div className="card">
-          <img
-            src={recipe.image}
-            alt={`Picture of ${recipe.title}`}
-            className="card-image"
-          />
-          <h2 className="card-title">{recipe.title}</h2>
-          <p className="card-text">{recipe.description}</p>
-        </div>
-        <div className="details">
-          <h1>Ingredients & Instructions</h1>
-          <p>{recipe.ingredients}</p>
+      <div>
+        <GoBack />
+        <div className="container">
+          <div className="card">
+            <img
+              src={recipe.image}
+              alt={`Picture of ${recipe.title}`}
+              className="card-image"
+            />
+            <h2 className="card-title">{recipe.title}</h2>
+            <p className="card-text">{recipe.shortdescription}</p>
+          </div>
+          <div className="details">
+            <h1>Ingredients & Instruction</h1>
+            <p>{recipe.ingredients}</p>
+            <p>{recipe.description}</p>
+          </div>
         </div>
       </div>
     )
