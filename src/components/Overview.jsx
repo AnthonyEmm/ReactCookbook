@@ -20,8 +20,10 @@ const Overview = () => {
   const { getData } = useContentful(); // using the function which we have created in the hook
   const [recipes, setRecipes] = useState(null); // setting up an empty useState for our recipe array
   const [search, setSearch] = useState(""); // use state which will be used for the search phrase
-  const [tag, setTag] =  useState(""); // this use state helps us saving the different tags to filter from them from the api
-
+   // const [query, setQuery] = useState(""); -> this could be used if you should be able to select filters on a search
+  const [tag, setTag] = useState()
+  // create new use state for query and use this to getData and not use it as a value of the search bar
+ 
   useEffect(() => { // this runs the very first time the page is access and contains all the entries from the api without any queries
     getData()
       .then((data) => {
@@ -40,25 +42,26 @@ const Overview = () => {
 
   const handleSubmit = (event) => { // when user presses enter, the page is prevented from reloading and then the data from the api is fetched using our get data function
     event.preventDefault();
-    getData(search)
+    getData(search, tag)
       .then((data) => {
         setRecipes(data);
       })
       .catch((error) => {
         console.log(error);
       });
-      setSearch("") // after the search is executed the input is reset by giving it an empty string
+      setSearch("") // QUESTION: if we want to keep the search state for the tag function this does not work!!
   }
 
   const handleTagClick = (event) => {
     console.log(event.target.value) 
-    setTag(event.target.value); 
-    getData(search, tag).then((data) => {
+    setTag(event.target.value)
+    getData(search, event.target.value).then((data) => {
       setRecipes(data);
     })
     .catch((error) => {
       console.log(error);
     });
+  
   }
 
   return (
@@ -88,29 +91,26 @@ const Overview = () => {
      </form>
      </Box>
      <Spacer />
-     {/* <Box><Select variant='filled' placeholder='Sort by: Newest' >
-        <option value='option1'>Option 1</option>
-       <option value='option2'>Option 2</option>
-        <option value='option3'>Option 3</option>
-      </Select></Box> */}
     </Flex>
   </GridItem>
   <GridItem area={'tabs'}>
       <Flex direction={"column"} align={"start"} gap={"3"}>
-      <Button leftIcon={<FaBowlRice />} colorScheme='gray' variant='outline' size='lg' value={"rice"}  onClick={handleTagClick}>
+
+        {/* create new button for all results - this means the state has to be reset to null ??? */}
+        <Button leftIcon={<FaHippo />} colorScheme={tag === "food" ? 'yellow' : "gray"} variant='solid' size='lg' value={"food"}  onClick={handleTagClick}>
+        All
+      </Button>
+      <Button leftIcon={<FaBowlRice />} colorScheme={tag === "rice" ? 'yellow' : "gray"} variant='solid' size='lg' value={"rice"}  onClick={handleTagClick}>
         Rice
       </Button>
-    <Button leftIcon={<FaCarrot />} colorScheme='gray' variant='outline' size='lg' value={"veggy"} onClick={handleTagClick}>
+    <Button leftIcon={<FaCarrot />} colorScheme={tag === "veggy" ? 'yellow' : "gray"} variant='solid' size='lg' value={"veggy"} onClick={handleTagClick}>
         Vegetarian
       </Button>
-      <Button leftIcon={<FaDrumstickBite />} colorScheme='gray' variant='outline' size='lg' value={"chicken"} onClick={handleTagClick}>
+      <Button leftIcon={<FaDrumstickBite />} colorScheme={tag === "chicken" ? 'yellow' : "gray"} variant='solid' size='lg' value={"chicken"} onClick={handleTagClick}>
         Chicken
       </Button>
-      <Button leftIcon={<FaFishFins />} colorScheme='gray' variant='outline' size='lg' value={"fish"} onClick={handleTagClick}>
+      <Button leftIcon={<FaFishFins />} colorScheme={tag === "fish" ? 'yellow' : "gray"} variant='solid' size='lg' value={"fish"} onClick={handleTagClick}>
         Fish
-      </Button>
-      <Button leftIcon={<FaHippo />} colorScheme='gray' variant='outline' size='lg' value={"hippo"} onClick={handleTagClick}>
-        Hungry Hippo
       </Button>
     </Flex>
 
@@ -129,6 +129,7 @@ const Overview = () => {
             color="blue.500"
             size="xl"
             className="spinner"
+            alignSelf={"center"}
           />
         ) : (recipes.length === 0 ? <Text>No Results found</Text> :
           recipes.map((recipe) => {
