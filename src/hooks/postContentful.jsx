@@ -3,8 +3,8 @@ import { createClient } from "contentful";
 
 export default function postContentful() {
 const client = createClient({
-    accessToken: 'w5hqQCzfv_RvK7Ez9fJbgXPhLA9GdACpaUYITWBJcHg',
-  })
+  accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS,
+})
   
   // Create entry
  const postData = client.getSpace('8fkfh7aut4xt')
