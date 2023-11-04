@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import useContentful from "../hooks/useContentful";
 import { Spinner, SimpleGrid, Input, Heading, InputGroup, InputLeftElement, Select, Flex, Spacer, Box, Text, Grid, GridItem, Button  } from "@chakra-ui/react";
-
-
 import RecipeCard from "./RecipeCard";
-import { Routes, Route, NavLink } from "react-router-dom";
+import SkeletonCard from "./SkeletonCard";
 
 
 // IMPORTIN ICONS
 import { Search2Icon} from '@chakra-ui/icons'
 import { FaBowlRice, FaCarrot, FaDrumstickBite, FaFishFins, FaHippo } from "react-icons/fa6";
+
 
 
 // create recipeCard component ✅
@@ -122,15 +121,11 @@ const Overview = () => {
         
       >
         {!recipes ? (
-          <Spinner
-            thickness="4px"
-            speed="0.65s"
-            emptyColor="gray.200"
-            color="blue.500"
-            size="xl"
-            className="spinner"
-            alignSelf={"center"}
-          />
+          <>
+            <SkeletonCard/>
+            <SkeletonCard/>
+            <SkeletonCard/>
+          </>
         ) : (recipes.length === 0 ? <Text>No Results found</Text> :
           recipes.map((recipe) => {
             return <RecipeCard key={recipe.id} recipe={recipe} />;
