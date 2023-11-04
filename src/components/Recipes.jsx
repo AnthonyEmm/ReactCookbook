@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import useContentfulSingle from "../hooks/useContentfulSingle";
-import { Tag, TagLabel} from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import React from "react";
 import GoBack from "./GoBack";
 
+// IMPORTING COMPONENTNS FROM CHAKRA
+import { Tag, TagLabel} from "@chakra-ui/react";
 
-//FaTags
+//IMPORTING ICONS FROM REACT ICONS
 import { FaTags } from "react-icons/fa6";
 
 
