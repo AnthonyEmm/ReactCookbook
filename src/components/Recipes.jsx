@@ -3,7 +3,6 @@ import useContentfulSingle from "../hooks/useContentfulSingle";
 import { useParams } from "react-router-dom";
 import React from "react";
 import GoBack from "./GoBack";
-import SkeletonCard from "./SkeletonCard";
 
 // IMPORTING COMPONENTNS FROM CHAKRA
 import { Tag, TagLabel, Spinner} from "@chakra-ui/react";
