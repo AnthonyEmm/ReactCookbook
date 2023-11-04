@@ -3,12 +3,14 @@ import useContentfulSingle from "../hooks/useContentfulSingle";
 import { useParams } from "react-router-dom";
 import React from "react";
 import GoBack from "./GoBack";
+import SkeletonCard from "./SkeletonCard";
 
 // IMPORTING COMPONENTNS FROM CHAKRA
-import { Tag, TagLabel} from "@chakra-ui/react";
+import { Tag, TagLabel, Spinner} from "@chakra-ui/react";
 
 //IMPORTING ICONS FROM REACT ICONS
 import { FaTags } from "react-icons/fa6";
+
 
 
 const Recipes = () => {
@@ -26,12 +28,13 @@ const Recipes = () => {
       });
   }, []);
 
-  console.log(recipe);
+  console.log(recipe?.date);
 
 
 
   return (
-    recipe && (
+    !recipe ? <Spinner size='xl' mt={70} /> // if the content is not loaded from the api yet the user will now see a spinner
+    :  (
       <div>
         <GoBack />
         <div className="container">
@@ -42,6 +45,7 @@ const Recipes = () => {
               className="card-image"
             />
             <h2 className="card-title">{recipe.title}</h2>
+            <p className="card-text">Created: {recipe.date}</p>
             <p className="card-text">{recipe.shortdescription}</p>
             {/* this is a mapping method to find each tag and create a small tag with an icon next to it */}
             {recipe?.tags.map((tag) => {
