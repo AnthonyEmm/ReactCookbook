@@ -5,7 +5,7 @@ export default function useContentful() {
  const client = createClient(
     { 
         space: '8fkfh7aut4xt',
-        accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS,
+        accessToken: 'w5hqQCzfv_RvK7Ez9fJbgXPhLA9GdACpaUYITWBJcHg',
         host: 'preview.contentful.com'
     }
  )
