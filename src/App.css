@@ -3,7 +3,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
 }
 
@@ -137,6 +137,62 @@
   background-color: #ffc436;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0.9, 0.7, 0.8, 0.8);
+}
+
+.showcase {
+  font-family: "Montserrat", sans-serif;
+  color: #926239;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
+  height: 100vh;
+  width: 100%;
+}
+.showcase img {
+  width: 20%;
+  height: 30%;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.showcase h1 {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.showcase p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.w-btn {
+  font-size: 15px;
+  font-weight: 600;
+  color: #926239;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: #926239 1px solid;
+  margin-top: 20px;
+}
+
+.w-btn:hover {
+  color: #918982;
+  background-color: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+  box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  text-decoration: none;
+  transform: translateY(-2px);
 }
 
 /* Test Styling for the ingredients list */
