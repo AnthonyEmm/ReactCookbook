@@ -1,14 +1,18 @@
-import {  NavLink } from "react-router-dom";
-import {  Button  } from "@chakra-ui/react";
-
+import { NavLink } from "react-router-dom";
 
 
 export default function WelcomePage() {
   return (
-    <div>
-      <h1>Hello World!</h1>
-      <Button colorScheme='red' size={"lg"}>
-      <NavLink to={"recipes"}>Explore More</NavLink></Button>
+    <div className="showcase">
+      <h1>Nigerian Cooking</h1>
+      <img src="./images/Nigeria-flag-bg.png" />
+      <p>
+        Welcome! <br /> We showcase a variety of Nigerian delicacy recipes
+      </p>
+      <NavLink to={"recipes"} className="w-btn">
+        Explore More
+      </NavLink>
+
     </div>
   );
 }
