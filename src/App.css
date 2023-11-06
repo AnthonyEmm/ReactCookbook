@@ -257,3 +257,7 @@
 .details li {
   list-style-type: square;
 }
+
+.icon-label{
+  margin-right: 8px;
+}

@@ -1,33 +1,29 @@
 import { useEffect, useState } from "react";
 import useContentful from "../hooks/useContentful";
 import { IconButton, SimpleGrid, Input, Heading, InputGroup, InputLeftElement, Select, Flex, Spacer, Box, Text, Grid, GridItem, Button  } from "@chakra-ui/react";
+
+// IMPORTING COMPONENTS
 import RecipeCard from "./RecipeCard";
 import SkeletonCard from "./SkeletonCard";
 
 
-// IMPORTIN ICONS
+// IMPORTING ICONS
 import { Search2Icon} from '@chakra-ui/icons'
 import { FaBowlRice, FaCarrot, FaDrumstickBite, FaFishFins, FaHippo, FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
-
-
-// create recipeCard component ✅
-// create useContentful hook ✅
-// show recipeCard with data from contentful on page ✅
 
 const Overview = () => {
   const { getData } = useContentful(); // using the function which we have created in the hook
   const [recipes, setRecipes] = useState(null); // setting up an empty useState for our recipe array
   const [search, setSearch] = useState(""); // use state which will be used for the search phrase
    // const [query, setQuery] = useState(""); -> this could be used if you should be able to select filters on a search
-  const [tag, setTag] = useState()
-  // create new use state for query and use this to getData and not use it as a value of the search bar
- const [skip, setSkip] = useState(0);
+  const [tag, setTag] = useState(); // this use state is for the tag filter
+  const [skip, setSkip] = useState(0); // this should increase by 6 for the next page and decrease by 6 for the previous page
 
 
 
   useEffect(() => { // this runs the very first time the page is access and contains all the entries from the api without any queries
-    getData()
+    getData() // first time getData is called it does not have search or tag querys and the skip should be zero
       .then((data) => {
         setRecipes(data);
       })
@@ -57,7 +53,7 @@ const Overview = () => {
   const handleTagClick = (event) => {
     console.log(event.target.value) 
     setTag(event.target.value)
-    getData(search, event.target.value, skip).then((data) => {
+    getData(search, event.target.value, skip).then((data) => { // once the button is clicked the value is used to do another axios request from the api
       setRecipes(data);
     })
     .catch((error) => {
@@ -141,7 +137,7 @@ const Overview = () => {
           (<>{recipes.map((recipe) => {
             return <RecipeCard key={recipe.id} recipe={recipe} />;
           })}
-                <div className="pagination">
+
       <Flex direction={"row"} align={"center"} gap={"3"} justifyContent={"center"} alignSelf={"center"}>
           <IconButton
            isRound={true}
@@ -159,12 +155,9 @@ const Overview = () => {
           onClick={handleNextSkip}
         />
       </Flex>
-</div> 
+
           </>
-          
-          )
-          
-        )}
+            ) )}
       </SimpleGrid>
   </GridItem>
 </Grid>

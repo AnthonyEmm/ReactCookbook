@@ -53,8 +53,8 @@ const Recipes = () => {
                 // because food is only used as a tag for the show all button, it can be ignored here
                 tag.sys.id != "food" &&
                <Tag size={'lg'} m={2} variant='subtle' colorScheme="orange">
-                  <FaTags/>
-                  <TagLabel> {tag.sys.id.toUpperCase()}</TagLabel>
+                  <FaTags className="icon-label"/>
+                  <TagLabel>{tag.sys.id.toUpperCase()}</TagLabel>
                </Tag>)
             })}
           </div>
