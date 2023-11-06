@@ -160,34 +160,34 @@
   width: 20%;
   height: 30%;
   border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
 .showcase h1 {
-  font-size: 50px;
+  font-size: 80px;
   font-weight: 700;
 }
 
 .showcase p {
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 30px;
+  font-weight: 700;
 }
 
 .w-btn {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 600;
-  color: #926239;
-  padding: 10px 20px;
+  color: white;
+  padding: 20px 30px;
   border-radius: 10px;
-  border: #926239 1px solid;
-  margin-top: 20px;
+  /* border: #186f65 1px solid; */
+  margin-top: 25px;
+  background-color: #337633;
 }
 
 .w-btn:hover {
-  color: #918982;
-  background-color: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+  color: white;
+  background-color: #f66737;
   box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
   transition: all 0.2s ease-in-out;
   outline: none;
