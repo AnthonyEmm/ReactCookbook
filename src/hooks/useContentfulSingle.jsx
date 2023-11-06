@@ -5,7 +5,7 @@ export default function useContentfulSingle() {
  const client = createClient(
     { 
         space: '8fkfh7aut4xt',
-        accessToken: 'w5hqQCzfv_RvK7Ez9fJbgXPhLA9GdACpaUYITWBJcHg',
+        accessToken: mport.meta.env.VITE_CONTENTFUL_ACCESS,
         host: 'preview.contentful.com'
     }
  )
