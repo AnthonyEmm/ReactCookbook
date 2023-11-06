@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import useContentful from "../hooks/useContentful";
-import { Spinner, SimpleGrid, Input, Heading, InputGroup, InputLeftElement, Select, Flex, Spacer, Box, Text, Grid, GridItem, Button  } from "@chakra-ui/react";
+import { IconButton, SimpleGrid, Input, Heading, InputGroup, InputLeftElement, Select, Flex, Spacer, Box, Text, Grid, GridItem, Button  } from "@chakra-ui/react";
 import RecipeCard from "./RecipeCard";
 import SkeletonCard from "./SkeletonCard";
 
 
 // IMPORTIN ICONS
 import { Search2Icon} from '@chakra-ui/icons'
-import { FaBowlRice, FaCarrot, FaDrumstickBite, FaFishFins, FaHippo } from "react-icons/fa6";
+import { FaBowlRice, FaCarrot, FaDrumstickBite, FaFishFins, FaHippo, FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
 
 
@@ -22,7 +22,10 @@ const Overview = () => {
    // const [query, setQuery] = useState(""); -> this could be used if you should be able to select filters on a search
   const [tag, setTag] = useState()
   // create new use state for query and use this to getData and not use it as a value of the search bar
- 
+ const [skip, setSkip] = useState(0);
+
+
+
   useEffect(() => { // this runs the very first time the page is access and contains all the entries from the api without any queries
     getData()
       .then((data) => {
@@ -41,7 +44,7 @@ const Overview = () => {
 
   const handleSubmit = (event) => { // when user presses enter, the page is prevented from reloading and then the data from the api is fetched using our get data function
     event.preventDefault();
-    getData(search, tag)
+    getData(search, tag, skip)
       .then((data) => {
         setRecipes(data);
       })
@@ -54,7 +57,7 @@ const Overview = () => {
   const handleTagClick = (event) => {
     console.log(event.target.value) 
     setTag(event.target.value)
-    getData(search, event.target.value).then((data) => {
+    getData(search, event.target.value, skip).then((data) => {
       setRecipes(data);
     })
     .catch((error) => {
@@ -63,16 +66,23 @@ const Overview = () => {
   
   }
 
+  const handleNextSkip = () => {
+    setSkip((prev) => {prev + 6})
+    getData(search, tag, skip).then((data) => {
+      setRecipes(data)}).catch((error) => {
+        console.log(error);
+      });
+
+  }
+
   return (
     <>
 
 <Grid
   templateAreas={`"search search"
                   "tabs main"`}
-  // gridTemplateRows={'50px 1fr'}
   gridTemplateColumns={'1fr 5fr'}
   rowGap='4'
-
 >
   <GridItem area={'search'}>
   <Flex mt={7}> 
@@ -118,7 +128,6 @@ const Overview = () => {
     <SimpleGrid
         spacing={4}
         templateColumns="repeat(auto-fill, minmax(300px, 1fr))"
-        
       >
         {!recipes ? (
           <>
@@ -126,17 +135,39 @@ const Overview = () => {
             <SkeletonCard/>
             <SkeletonCard/>
           </>
-        ) : (recipes.length === 0 ? <Text>No Results found</Text> :
-          recipes.map((recipe) => {
+        ) : (
+          
+          recipes.length === 0 ? <Text>No Results found</Text> :
+          (<>{recipes.map((recipe) => {
             return <RecipeCard key={recipe.id} recipe={recipe} />;
-          })
+          })}
+                <div className="pagination">
+      <Flex direction={"row"} align={"center"} gap={"3"} justifyContent={"center"} alignSelf={"center"}>
+          <IconButton
+           isRound={true}
+            colorScheme='teal'
+            aria-label='Call Segun'
+            size='lg'
+            icon={<FaArrowLeft />}
+          />
+        <IconButton
+        isRound={true}
+          colorScheme='teal'
+          aria-label='Call Segun'
+          size='lg'
+          icon={<FaArrowRight />}
+          onClick={handleNextSkip}
+        />
+      </Flex>
+</div> 
+          </>
+          
+          )
+          
         )}
       </SimpleGrid>
-
-
-    
   </GridItem>
-      </Grid>
+</Grid>
     </>
   );
 }

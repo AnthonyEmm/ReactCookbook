@@ -11,7 +11,7 @@ export default function useContentful() {
  )
 
  // get the data using the contenttype 
- const getData = async (search, tag) =>{ // search is now a parameter which will be givin once the function is called. this makes sure that only certain entries gets shown
+ const getData = async (search, tag, skip) =>{ // search is now a parameter which will be givin once the function is called. this makes sure that only certain entries gets shown
  // try part for if it is successfull
  try{
     const recipes = await client.getEntries(
@@ -19,7 +19,9 @@ export default function useContentful() {
             content_type: "recipe", 
             select: "fields",
             query: search, 
-            'metadata.tags.sys.id[in]': tag
+            'metadata.tags.sys.id[in]': tag, 
+            limit: 6,
+            skip: skip
         }
     ); 
     console.log(recipes)
