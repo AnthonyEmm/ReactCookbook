@@ -60,7 +60,6 @@ const Recipes = () => {
           </div>
           <div className="details">
             <h1>Ingredients & Instruction</h1>
-            {/* <p>{recipe.ingredients}</p> */}
             <ul>{/* this is a different approach to the ingredients and takes an array from the api and maps over it to create list items</p> */}
               {recipe.ingredientlist?.map( (ingredient) => {
                return <li key={ingredient+"key"}>{ingredient}</li>

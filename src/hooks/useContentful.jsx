@@ -20,7 +20,7 @@ export default function useContentful() {
             select: "fields",
             query: search, 
             'metadata.tags.sys.id[in]': tag, 
-            limit: 6,
+            limit: 3,
             skip: skip, 
             order: "sys.createdAt"
         }

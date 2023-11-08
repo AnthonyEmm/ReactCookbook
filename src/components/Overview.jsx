@@ -67,8 +67,8 @@ const Overview = () => {
   }
 
   const handleNextSkip = () => {
-    setSkip((prev) => {prev + 2})
-    getData(search, tag, skip +2 ).then((data) => {
+    setSkip((prev) => {prev + 1})
+    getData(search, tag, skip +1 ).then((data) => {
       setRecipes(data)}).catch((error) => {
         console.log(error);
       });
@@ -76,8 +76,8 @@ const Overview = () => {
   }
 
   const handlePrevSkip = () => {
-    setSkip((prev) => {prev - 2})
-    getData(search, tag, (skip - 2) ).then((data) => {
+    setSkip((prev) => {prev - 3})
+    getData(search, tag, (skip - 3) ).then((data) => {
       setRecipes(data)}).catch((error) => {
         console.log(error);
       });
