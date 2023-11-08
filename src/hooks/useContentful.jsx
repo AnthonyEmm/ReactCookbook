@@ -21,7 +21,8 @@ export default function useContentful() {
             query: search, 
             'metadata.tags.sys.id[in]': tag, 
             limit: 6,
-            skip: skip
+            skip: skip, 
+            order: "sys.createdAt"
         }
     ); 
     console.log(recipes)

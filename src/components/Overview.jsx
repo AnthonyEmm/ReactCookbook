@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import useContentful from "../hooks/useContentful";
+
+//IMPORTS FOR STYLE
 import { IconButton, SimpleGrid, Input, Heading, InputGroup, InputLeftElement, Select, Flex, Spacer, Box, Text, Grid, GridItem, Button  } from "@chakra-ui/react";
+import "./Overview.css"
 
 // IMPORTING COMPONENTS
 import RecipeCard from "./RecipeCard";
@@ -10,6 +13,7 @@ import SkeletonCard from "./SkeletonCard";
 // IMPORTING ICONS
 import { Search2Icon} from '@chakra-ui/icons'
 import { FaBowlRice, FaCarrot, FaDrumstickBite, FaFishFins, FaHippo, FaArrowLeft, FaArrowRight } from "react-icons/fa6";
+import { ClassNames } from "@emotion/react";
 
 
 const Overview = () => {
@@ -63,8 +67,17 @@ const Overview = () => {
   }
 
   const handleNextSkip = () => {
-    setSkip((prev) => {prev + 6})
-    getData(search, tag, skip).then((data) => {
+    setSkip((prev) => {prev + 2})
+    getData(search, tag, skip +2 ).then((data) => {
+      setRecipes(data)}).catch((error) => {
+        console.log(error);
+      });
+
+  }
+
+  const handlePrevSkip = () => {
+    setSkip((prev) => {prev - 2})
+    getData(search, tag, (skip - 2) ).then((data) => {
       setRecipes(data)}).catch((error) => {
         console.log(error);
       });
@@ -138,16 +151,25 @@ const Overview = () => {
             return <RecipeCard key={recipe.id} recipe={recipe} />;
           })}
 
-      <Flex direction={"row"} align={"center"} gap={"3"} justifyContent={"center"} alignSelf={"center"}>
+      
+
+          </>
+            ) )}
+      </SimpleGrid>
+      <Flex direction={"row"} align={"center"} gap={"3"} justifyContent={"center"} alignSelf={"center"} ClassName="pagination">
           <IconButton
            isRound={true}
             colorScheme='teal'
             aria-label='Call Segun'
             size='lg'
+            m={4}
             icon={<FaArrowLeft />}
+            disabled={skip === 0 ? true: false}
+            onClick={handlePrevSkip}
           />
         <IconButton
         isRound={true}
+        m={4}
           colorScheme='teal'
           aria-label='Call Segun'
           size='lg'
@@ -156,9 +178,6 @@ const Overview = () => {
         />
       </Flex>
 
-          </>
-            ) )}
-      </SimpleGrid>
   </GridItem>
 </Grid>
     </>
