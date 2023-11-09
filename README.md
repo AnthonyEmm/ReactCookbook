@@ -1,4 +1,4 @@
-# WBS CODING SCHOOL PROJECT
+# WBS CODING SCHOOL PROJECT MODULE 6 - COOKBOOK
 
 This project is part of the WBS Coding School Webdevelopment Bootcamp. The goal of the project is:
 
@@ -32,38 +32,33 @@ For fetching the data the useContentful (for all entries) and useContentfulSingl
 
 Example:
 
-```
-const sanitizedRecipes = recipes.items.map((recipe)=>{
-const title = recipe.fields.recipetitle
-const description = recipe.fields.description
-const shortdescription = recipe.fields.shortDescription
-const image = recipe.fields.image.fields.file.url
-const id = recipe.sys.id
-const ingredients = recipe.fields.ingredientstext
+```js
+const sanitizedRecipes = recipes.items.map((recipe) => {
+  const title = recipe.fields.recipetitle;
+  const description = recipe.fields.description;
+  const shortdescription = recipe.fields.shortDescription;
+  const image = recipe.fields.image.fields.file.url;
+  const id = recipe.sys.id;
+  const ingredients = recipe.fields.ingredientstext;
 
-        return {title, description, image, id, ingredients, shortdescription}
-    } )
-
+  return { title, description, image, id, ingredients, shortdescription };
+});
 ```
 
 This means if a new field in contentful is created it has to be added to the sanitizedRecipes Array to ensure that it can be displayed.
 
 To ensure the search, filter and pagination functions the getData function in the hook takes the following parameters: search, tag, skip.
 
-```
-
-    const recipes = await client.getEntries(
-        {
-            content_type: "recipe",
-            select: "fields",
-            query: search,
-            'metadata.tags.sys.id[in]': tag,
-            limit: 6,
-            skip: skip,
-            order: "sys.createdAt"
-        }
-    );
-
+```js
+const recipes = await client.getEntries({
+  content_type: "recipe",
+  select: "fields",
+  query: search,
+  "metadata.tags.sys.id[in]": tag,
+  limit: 6,
+  skip: skip,
+  order: "sys.createdAt",
+});
 ```
 
 ## React Router DOM
@@ -71,15 +66,21 @@ To ensure the search, filter and pagination functions the getData function in th
 For routing of the pages [React Router version 6](https://reactrouter.com/en/main) is used.
 The project uses nested routing to ensure that navigation between the recipes overview and the recipe details still show the header image.
 
-```
-    <Routes>
-        <Route path="/" element={<WelcomePage />} />
-        <Route path="recipes" element={<div>
-          <Header /><Outlet/>
-          </div>}>
-          <Route path="" element={<Overview />} />
-          <Route path=":someId" element={<Recipes />} />
-        </Route>
-        <Route path="/create" element={<Form />} />
-      </Routes>
+```js
+<Routes>
+  <Route path="/" element={<WelcomePage />} />
+  <Route
+    path="recipes"
+    element={
+      <div>
+        <Header />
+        <Outlet />
+      </div>
+    }
+  >
+    <Route path="" element={<Overview />} />
+    <Route path=":someId" element={<Recipes />} />
+  </Route>
+  <Route path="/create" element={<Form />} />
+</Routes>
 ```
