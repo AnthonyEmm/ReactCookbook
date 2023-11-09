@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
+
 const RecipeCard = ({ recipe }) => {
   return (
     <Card maxW="sm">
