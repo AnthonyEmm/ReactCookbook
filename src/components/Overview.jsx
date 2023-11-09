@@ -13,7 +13,7 @@ import SkeletonCard from "./SkeletonCard";
 // IMPORTING ICONS
 import { Search2Icon} from '@chakra-ui/icons'
 import { FaBowlRice, FaCarrot, FaDrumstickBite, FaFishFins, FaHippo, FaArrowLeft, FaArrowRight } from "react-icons/fa6";
-import { ClassNames } from "@emotion/react";
+
 
 
 const Overview = () => {
@@ -25,6 +25,14 @@ const Overview = () => {
   const [skip, setSkip] = useState(0); // this should increase by 6 for the next page and decrease by 6 for the previous page
 
 
+ // creating an array of objects for the tag buttons
+ const menuItems = [
+  {name: "All", icon: <FaHippo/>, value: "food"},
+  {name: "Rice", icon: <FaBowlRice/>, value: "rice"},
+  {name: "Vegetrarian", icon: <FaCarrot/>, value: "veggy"},
+  {name: "Chicken", icon: <FaDrumstickBite/>, value: "chicken"},
+  {name: "Fish", icon: <FaFishFins/>, value: "fish"}
+] 
 
   useEffect(() => { // this runs the very first time the page is access and contains all the entries from the api without any queries
     getData() // first time getData is called it does not have search or tag querys and the skip should be zero
@@ -36,7 +44,7 @@ const Overview = () => {
       });
   }, []);
 
-  console.log(recipes);
+  console.log(recipes?.total);
 
   const handleChange = (event) => { // this changes the search state to the input in the search bar
     setSearch(event.target.value) 
@@ -67,8 +75,9 @@ const Overview = () => {
   }
 
   const handleNextSkip = () => {
-    setSkip((prev) => {prev + 1})
-    getData(search, tag, skip +1 ).then((data) => {
+    setSkip((prev) => prev + 1)
+    getData(search, tag, skip +1 )
+    .then((data) => {
       setRecipes(data)}).catch((error) => {
         console.log(error);
       });
@@ -76,8 +85,9 @@ const Overview = () => {
   }
 
   const handlePrevSkip = () => {
-    setSkip((prev) => {prev - 3})
-    getData(search, tag, (skip - 3) ).then((data) => {
+    setSkip((prev) => prev - 1)
+    getData(search, tag, skip - 1 )
+    .then((data) => {
       setRecipes(data)}).catch((error) => {
         console.log(error);
       });
@@ -113,23 +123,12 @@ const Overview = () => {
   </GridItem>
   <GridItem area={'tabs'}>
       <Flex direction={"column"} align={"start"} gap={"3"}>
-
-        {/* create new button for all results - this means the state has to be reset to null ??? */}
-        <Button leftIcon={<FaHippo />} colorScheme={tag === "food" ? 'yellow' : "gray"} variant='solid' size='lg' value={"food"}  onClick={handleTagClick}>
-        All
-      </Button>
-      <Button leftIcon={<FaBowlRice />} colorScheme={tag === "rice" ? 'yellow' : "gray"} variant='solid' size='lg' value={"rice"}  onClick={handleTagClick}>
-        Rice
-      </Button>
-    <Button leftIcon={<FaCarrot />} colorScheme={tag === "veggy" ? 'yellow' : "gray"} variant='solid' size='lg' value={"veggy"} onClick={handleTagClick}>
-        Vegetarian
-      </Button>
-      <Button leftIcon={<FaDrumstickBite />} colorScheme={tag === "chicken" ? 'yellow' : "gray"} variant='solid' size='lg' value={"chicken"} onClick={handleTagClick}>
-        Chicken
-      </Button>
-      <Button leftIcon={<FaFishFins />} colorScheme={tag === "fish" ? 'yellow' : "gray"} variant='solid' size='lg' value={"fish"} onClick={handleTagClick}>
-        Fish
-      </Button>
+      {menuItems.map((item) => {
+        return (
+          <Button leftIcon={item.icon} colorScheme={tag === item.value ? 'yellow' : "gray"} variant='solid' size='lg' value={item.value}  onClick={handleTagClick}>
+          {item.name}
+        </Button>
+        ) })}
     </Flex>
 
   </GridItem>
@@ -164,7 +163,7 @@ const Overview = () => {
             size='lg'
             m={4}
             icon={<FaArrowLeft />}
-            disabled={skip === 0 ? true: false}
+            isDisabled={skip === 0 ? true: false}
             onClick={handlePrevSkip}
           />
         <IconButton
@@ -174,6 +173,7 @@ const Overview = () => {
           aria-label='Call Segun'
           size='lg'
           icon={<FaArrowRight />}
+          // isDisabled={} create a rule which checks if the skip is equal to the total and then disable it
           onClick={handleNextSkip}
         />
       </Flex>

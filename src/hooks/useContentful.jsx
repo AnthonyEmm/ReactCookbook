@@ -34,9 +34,9 @@ export default function useContentful() {
         const image = recipe.fields.image.fields.file.url
         const id = recipe.sys.id
         const ingredients = recipe.fields.ingredientstext
-        // figure out what to do with the ingredients
+        const total = recipe.total // why is this undefined? 
 
-        return {title, description, image, id, ingredients, shortdescription}
+        return {title, description, image, id, ingredients, shortdescription, total}
     }
 
     )
@@ -49,9 +49,6 @@ catch(error) { console.log(error)}
  }
 
 
- // clean up the data 
-
- //return the function
 
 return {getData}
 
