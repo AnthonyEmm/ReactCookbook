@@ -34,15 +34,14 @@ export default function useContentful() {
         const image = recipe.fields.image.fields.file.url
         const id = recipe.sys.id
         const ingredients = recipe.fields.ingredientstext
-        const total = recipe.total // why is this undefined? 
+       
 
-        return {title, description, image, id, ingredients, shortdescription, total}
-    }
+        return {title, description, image, id, ingredients, shortdescription}
+    } )
 
-    )
+    const total = recipes.total // why is this undefined? 
 
-
-    return sanitizedRecipes; // having to return the content otherwise the data in apps will be undefined
+    return {sanitizedRecipes, total}; // having to return the content otherwise the data in apps will be undefined
  }
  // catch part for if it fails
 catch(error) { console.log(error)}

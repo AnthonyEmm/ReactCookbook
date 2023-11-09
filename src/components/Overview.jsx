@@ -23,7 +23,7 @@ const Overview = () => {
    // const [query, setQuery] = useState(""); -> this could be used if you should be able to select filters on a search
   const [tag, setTag] = useState(); // this use state is for the tag filter
   const [skip, setSkip] = useState(0); // this should increase by 6 for the next page and decrease by 6 for the previous page
-
+  const [total, setTotal] = useState(); 
 
  // creating an array of objects for the tag buttons
  const menuItems = [
@@ -38,14 +38,15 @@ const Overview = () => {
   useEffect(() => { // this runs the very first time the page is access and contains all the entries from the api without any queries
     getData() // first time getData is called it does not have search or tag querys and the skip should be zero
       .then((data) => {
-        setRecipes(data);
+        setRecipes(data.sanitizedRecipes);
+        setTotal(data.total)
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
 
-  console.log(recipes?.total);
+  console.log(total);
 
   const handleChange = (event) => { // this changes the search state to the input in the search bar
     setSearch(event.target.value) 
@@ -55,7 +56,8 @@ const Overview = () => {
     event.preventDefault();
     getData(search, tag, skip)
       .then((data) => {
-        setRecipes(data);
+        setRecipes(data.sanitizedRecipes);
+        setTotal(data.total)
       })
       .catch((error) => {
         console.log(error);
@@ -67,7 +69,9 @@ const Overview = () => {
     console.log(event.target.value) 
     setTag(event.target.value)
     getData(search, event.target.value, skip).then((data) => { // once the button is clicked the value is used to do another axios request from the api
-      setRecipes(data);
+      setRecipes(data.sanitizedRecipes);
+      setTotal(data.total)
+      setSkip(0)
     })
     .catch((error) => {
       console.log(error);
@@ -79,7 +83,8 @@ const Overview = () => {
     setSkip((prev) => prev + 1)
     getData(search, tag, skip +1 )
     .then((data) => {
-      setRecipes(data)}).catch((error) => {
+      setRecipes(data.sanitizedRecipes);
+      setTotal(data.total)}).catch((error) => {
         console.log(error);
       });
 
@@ -89,10 +94,17 @@ const Overview = () => {
     setSkip((prev) => prev - 1)
     getData(search, tag, skip - 1 )
     .then((data) => {
-      setRecipes(data)}).catch((error) => {
+      setRecipes(data.sanitizedRecipes)
+      setTotal(data.total)}).catch((error) => {
         console.log(error);
       });
 
+  }
+
+  const handleDisable = (total, skip) =>{
+    if(total<=3) return true;
+    if((total-skip)===3) return true;
+    return false
   }
 
   return (
@@ -174,7 +186,7 @@ const Overview = () => {
           aria-label='Call Segun'
           size='lg'
           icon={<FaArrowRight />}
-          // isDisabled={} create a rule which checks if the skip is equal to the total and then disable it
+        //  isDisabled={handleDisable} 
           onClick={handleNextSkip}
         />
       </Flex>
