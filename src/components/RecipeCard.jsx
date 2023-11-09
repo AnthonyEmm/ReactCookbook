@@ -12,7 +12,6 @@ const RecipeCard = ({recipe}) => {
         <Image
               src={recipe.image}
               alt={recipe.title}
-              // borderRadius='lg'
               borderTopLeftRadius="lg"
               borderTopRightRadius="lg"
             />
