@@ -30,7 +30,7 @@ const Overview = () => {
   {name: "All", icon: <FaHippo/>, value: "food"},
   {name: "Rice", icon: <FaBowlRice/>, value: "rice"},
   {name: "Vegetarian", icon: <FaCarrot/>, value: "veggy"},
-  {name: "Chicken", icon: <FaDrumstickBite/>, value: "chicken"},
+  {name: "Meat", icon: <FaDrumstickBite/>, value: "meat"},
   {name: "Fish", icon: <FaFishFins/>, value: "fish"},
   {name: "Breakfast", icon: <FaMugSaucer/>, value: "breakfast"}
 ] 
@@ -80,8 +80,8 @@ const Overview = () => {
   }
 
   const handleNextSkip = () => {
-    setSkip((prev) => prev + 1)
-    getData(search, tag, skip +1 )
+    setSkip((prev) => prev + 3)
+    getData(search, tag, skip +3 )
     .then((data) => {
       setRecipes(data.sanitizedRecipes);
       setTotal(data.total)}).catch((error) => {
@@ -91,8 +91,8 @@ const Overview = () => {
   }
 
   const handlePrevSkip = () => {
-    setSkip((prev) => prev - 1)
-    getData(search, tag, skip - 1 )
+    setSkip((prev) => prev - 3)
+    getData(search, tag, skip - 3)
     .then((data) => {
       setRecipes(data.sanitizedRecipes)
       setTotal(data.total)}).catch((error) => {
@@ -101,11 +101,6 @@ const Overview = () => {
 
   }
 
-  const handleDisable = (total, skip) =>{
-    if(total<=3) return true;
-    if((total-skip)===3) return true;
-    return false
-  }
 
   return (
     <>
@@ -186,7 +181,7 @@ const Overview = () => {
           aria-label='Call Segun'
           size='lg'
           icon={<FaArrowRight />}
-        //  isDisabled={handleDisable} 
+          isDisabled={total <= 6 || total - skip === 6}
           onClick={handleNextSkip}
         />
       </Flex>
