@@ -53,14 +53,13 @@ const Recipes = () => {
                 // because food is only used as a tag for the show all button, it can be ignored here
                 tag.sys.id != "food" &&
                <Tag size={'lg'} m={2} variant='subtle' colorScheme="orange">
-                  <FaTags/>
-                  <TagLabel> {tag.sys.id.toUpperCase()}</TagLabel>
+                  <FaTags className="icon-label"/>
+                  <TagLabel>{tag.sys.id.toUpperCase()}</TagLabel>
                </Tag>)
             })}
           </div>
           <div className="details">
             <h1>Ingredients & Instruction</h1>
-            {/* <p>{recipe.ingredients}</p> */}
             <ul>{/* this is a different approach to the ingredients and takes an array from the api and maps over it to create list items</p> */}
               {recipe.ingredientlist?.map( (ingredient) => {
                return <li key={ingredient+"key"}>{ingredient}</li>
