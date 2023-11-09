@@ -13,8 +13,13 @@ import { Link } from "react-router-dom";
 const RecipeCard = ({ recipe }) => {
   return (
     <Card maxW="sm">
+      <Image
+        src={recipe.image}
+        alt={recipe.title}
+        borderTopLeftRadius="lg"
+        borderTopRightRadius="lg"
+      />
       <CardBody>
-        <Image src={recipe.image} alt={recipe.title} borderRadius="lg" />
         <Stack mt="6" spacing="3">
           <Heading size="md">{recipe.title}</Heading>
           <Link to={`/recipes/${recipe.id}`}>

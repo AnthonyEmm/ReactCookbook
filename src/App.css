@@ -1,18 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto+Slab:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto+Slab:wght@500;600;700&display=swap");
 
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 1rem 0;
   text-align: center;
 }
 
 /* styling the hero section for the header */
 .hero h1 {
-  font-family: "Kenia", sans-serif;
+  font-family: "Agbalumo", sans-serif;
   text-transform: uppercase;
-  font-size: 5rem;
+  font-size: 4.5rem;
   font-weight: 900;
+  margin-bottom: 1rem;
+  color: rgb(23, 21, 21);
 }
 
 .hero {
@@ -27,7 +29,8 @@
   font-size: 1.125rem;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
-  color: rgb(14, 14, 13);
+  color: rgb(55, 55, 52);
+  padding-bottom: 2rem;
 }
 
 .return-btn {
@@ -248,6 +251,6 @@
   list-style-type: square;
 }
 
-.icon-label{
+.icon-label {
   margin-right: 8px;
 }
