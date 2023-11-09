@@ -166,7 +166,7 @@ const Overview = () => {
       <Flex direction={"row"} align={"center"} gap={"3"} justifyContent={"center"} alignSelf={"center"} ClassName="pagination">
           <IconButton
            isRound={true}
-            colorScheme='teal'
+            colorScheme='orange'
             aria-label='Call Segun'
             size='lg'
             m={4}
@@ -177,7 +177,7 @@ const Overview = () => {
         <IconButton
         isRound={true}
         m={4}
-          colorScheme='teal'
+          colorScheme='orange'
           aria-label='Call Segun'
           size='lg'
           icon={<FaArrowRight />}
