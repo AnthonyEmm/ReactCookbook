@@ -1,42 +1,35 @@
-import { useEffect, useState } from 'react'
-import useContentful from './hooks/useContentful'
-import './App.css'
+import "./App.css";
+import Header from "./components/Header";
+import Recipes from "./components/Recipes";
+import Overview from "./components/Overview";
+import Form from "./components/Form";
+import WelcomePage from "./components/WelcomePage";
+import { Routes, Route, NavLink, Outlet } from "react-router-dom";
 
-// create recipeCard component 
+
+
+// create recipeCard component ✅
 // create useContentful hook ✅
-// show recipeCard with data from contentful on page
-
+// show recipeCard with data from contentful on page ✅
+// create routing for the recipe overview and recipe detail pages
 
 function App() {
-  const {getData} = useContentful(); // using the function which we have created in the hook
-  const [recipes, setRecipes] = useState(null); // setting up an empty useState for our recipe array
-
-useEffect(()=>{
-  getData().then((data) =>{
-    setRecipes(data)
-  }
-  ).catch((error)=>{console.log(error)})
-}, [])
-
-console.log(recipes)
-
   return (
     <>
-{!recipes ? <p>let's cook something together</p>: recipes.map((item) => {
-  return (
-// create recipe Card component styling with bootstrap
-
-  <div key={item.id}>
-    <h2>{item.title}</h2>
-    <img src={item.image} alt={item.title} />
-    <p>{item.description}</p>
-    </div>
-  )
-}
-
-)}
+      
+     
+      <Routes>
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="recipes" element={<div>
+          <Header /><Outlet/>
+          </div>}> 
+          <Route path="" element={<Overview />} />
+          <Route path=":someId" element={<Recipes />} />
+        </Route>
+        <Route path="/create" element={<Form />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

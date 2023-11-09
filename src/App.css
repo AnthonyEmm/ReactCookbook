@@ -1,8 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto+Slab:wght@500;600;700&display=swap");
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* styling the hero section for the header */
+.hero h1 {
+  font-family: "Kenia", sans-serif;
+  text-transform: uppercase;
+  font-size: 5rem;
+  font-weight: 900;
+}
+
+.hero {
+  background-image: url("/src/assets/backgroundCute.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1.125rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(14, 14, 13);
+}
+
+.return-btn {
+  display: inline-block;
+  width: 15%;
+  height: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem 1rem;
+  font-size: 1.255rem;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
+  border: 1px black;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  background-color: #f66737;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
+}
+
+.return-btn:hover {
+  color: white;
+  background-color: #337633;
+  box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* styling the card container  */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  margin: 0 auto;
+  max-width: 1280px;
   padding: 2rem;
   text-align: center;
+}
+
+.card {
+  width: 100%;
+  height: auto;
+  border: 1px solid #8a8080;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
+  background-color: white;
+}
+
+.card-image {
+  width: 400%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 1px solid;
+  box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
+}
+
+.card-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.card-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 35px;
+}
+
+/* styling the details h1 and p tags */
+
+.details h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0.9, 0.7, 0.8, 0.8);
+  text-transform: uppercase;
+}
+
+.details p {
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 20px;
+  border: 1px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0.9, 0.7, 0.8, 0.8);
+}
+
+.showcase {
+  font-family: "Montserrat", sans-serif;
+  color: #926239;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
+  height: 100vh;
+  width: 100%;
+}
+.showcase img {
+  width: 20%;
+  height: 30%;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.showcase h1 {
+  font-size: 80px;
+  font-weight: 700;
+}
+
+.showcase p {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.w-btn {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  margin-top: 25px;
+  background-color: #337633;
+}
+
+.w-btn:hover {
+  color: white;
+  background-color: #f66737;
+  box-shadow: 0 4px 6px rgba(0.5, 0, 0, 0.8);
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  text-decoration: none;
+  transform: translateY(-2px);
 }
 
 .logo {
@@ -18,13 +207,10 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -39,4 +225,29 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Test Styling for the ingredients list */
+.details ul {
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 20px 20px 20px 30px;
+  border: 1px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0.9, 0.7, 0.8, 0.8);
+  text-align: left;
+}
+.details li {
+  list-style-type: square;
+}
+
+.icon-label{
+  margin-right: 8px;
 }
