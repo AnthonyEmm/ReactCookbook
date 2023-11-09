@@ -82,6 +82,7 @@ const Overview = () => {
       .then((data) => {
         setRecipes(data.sanitizedRecipes);
         setTotal(data.total);
+        setSkip(0)
       })
       .catch((error) => {
         console.log(error);
@@ -165,10 +166,10 @@ const Overview = () => {
         </GridItem>
         <GridItem area={"tabs"}>
           <Flex direction={"column"} align={"start"} gap={"3"}>
-            {/* should these buttons be an own component which tages the item object as a prop?  */}
             {menuItems.map((item) => {
               return (
-                <Button
+                <Button 
+                 key={item.value}
                   leftIcon={item.icon}
                   colorScheme={tag === item.value ? "yellow" : "gray"}
                   variant="solid"
@@ -230,7 +231,7 @@ const Overview = () => {
               aria-label="Call Segun"
               size="lg"
               icon={<FaArrowRight />}
-              isDisabled={total <= 6 || total - skip === 6}
+              isDisabled={total <= 6 || total - skip <= 6}
               onClick={handleNextSkip}
             />
           </Flex>
