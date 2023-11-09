@@ -12,7 +12,7 @@ import SkeletonCard from "./SkeletonCard";
 
 // IMPORTING ICONS
 import { Search2Icon} from '@chakra-ui/icons'
-import { FaBowlRice, FaCarrot, FaDrumstickBite, FaFishFins, FaHippo, FaArrowLeft, FaArrowRight } from "react-icons/fa6";
+import { FaBowlRice, FaCarrot, FaDrumstickBite, FaFishFins, FaHippo, FaArrowLeft, FaArrowRight, FaMugSaucer } from "react-icons/fa6";
 
 
 
@@ -29,9 +29,10 @@ const Overview = () => {
  const menuItems = [
   {name: "All", icon: <FaHippo/>, value: "food"},
   {name: "Rice", icon: <FaBowlRice/>, value: "rice"},
-  {name: "Vegetrarian", icon: <FaCarrot/>, value: "veggy"},
+  {name: "Vegetarian", icon: <FaCarrot/>, value: "veggy"},
   {name: "Chicken", icon: <FaDrumstickBite/>, value: "chicken"},
-  {name: "Fish", icon: <FaFishFins/>, value: "fish"}
+  {name: "Fish", icon: <FaFishFins/>, value: "fish"},
+  {name: "Breakfast", icon: <FaMugSaucer/>, value: "breakfast"}
 ] 
 
   useEffect(() => { // this runs the very first time the page is access and contains all the entries from the api without any queries
@@ -123,6 +124,7 @@ const Overview = () => {
   </GridItem>
   <GridItem area={'tabs'}>
       <Flex direction={"column"} align={"start"} gap={"3"}>
+        {/* should these buttons be an own component which tages the item object as a prop?  */}
       {menuItems.map((item) => {
         return (
           <Button leftIcon={item.icon} colorScheme={tag === item.value ? 'yellow' : "gray"} variant='solid' size='lg' value={item.value}  onClick={handleTagClick}>
@@ -139,6 +141,7 @@ const Overview = () => {
       >
         {!recipes ? (
           <>
+          {/* is it ok that I just wrote the component 3 times here?  */}
             <SkeletonCard/>
             <SkeletonCard/>
             <SkeletonCard/>
@@ -149,12 +152,10 @@ const Overview = () => {
           (<>{recipes.map((recipe) => {
             return <RecipeCard key={recipe.id} recipe={recipe} />;
           })}
-
-      
-
           </>
             ) )}
       </SimpleGrid>
+      {/* should I move the Pagination into it's own component?  */}
       <Flex direction={"row"} align={"center"} gap={"3"} justifyContent={"center"} alignSelf={"center"} ClassName="pagination">
           <IconButton
            isRound={true}
