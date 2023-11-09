@@ -1,17 +1,12 @@
 import React from "react";
-
 import {
   Card,
-  CardHeader,
   CardBody,
-  CardFooter,
   Stack,
   Heading,
-  Divider,
   Text,
   Image,
   Button,
-  Collapse,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 

@@ -17,10 +17,12 @@ function App() {
   return (
     <>
       
-
+     
       <Routes>
         <Route path="/" element={<WelcomePage />} />
-        <Route path="recipes" element={<div><Header /><Outlet/></div>}>
+        <Route path="recipes" element={<div>
+          <Header /><Outlet/>
+          </div>}> 
           <Route path="" element={<Overview />} />
           <Route path=":someId" element={<Recipes />} />
         </Route>

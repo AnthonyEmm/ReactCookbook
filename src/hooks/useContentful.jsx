@@ -11,7 +11,7 @@ export default function useContentful() {
  )
 
  // get the data using the contenttype 
- const getData = async (search, tag) =>{ // search is now a parameter which will be givin once the function is called. this makes sure that only certain entries gets shown
+ const getData = async (search, tag, skip) =>{ // search is now a parameter which will be givin once the function is called. this makes sure that only certain entries gets shown
  // try part for if it is successfull
  try{
     const recipes = await client.getEntries(
@@ -19,7 +19,10 @@ export default function useContentful() {
             content_type: "recipe", 
             select: "fields",
             query: search, 
-            'metadata.tags.sys.id[in]': tag
+            'metadata.tags.sys.id[in]': tag, 
+            limit: 6,
+            skip: skip, 
+            order: "sys.createdAt"
         }
     ); 
     console.log(recipes)
@@ -31,24 +34,20 @@ export default function useContentful() {
         const image = recipe.fields.image.fields.file.url
         const id = recipe.sys.id
         const ingredients = recipe.fields.ingredientstext
-        // figure out what to do with the ingredients
+       
 
         return {title, description, image, id, ingredients, shortdescription}
-    }
+    } )
 
-    )
+    const total = recipes.total // why is this undefined? 
 
-
-    return sanitizedRecipes; // having to return the content otherwise the data in apps will be undefined
+    return {sanitizedRecipes, total}; // having to return the content otherwise the data in apps will be undefined
  }
  // catch part for if it fails
 catch(error) { console.log(error)}
  }
 
 
- // clean up the data 
-
- //return the function
 
 return {getData}
 
