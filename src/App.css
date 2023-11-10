@@ -160,11 +160,12 @@
   width: 100%;
 }
 .showcase img {
-  width: 20%;
-  height: 30%;
+  width: 30%;
+  max-height: 40%;
   border-radius: 5px;
   margin-top: 20px;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .showcase h1 {

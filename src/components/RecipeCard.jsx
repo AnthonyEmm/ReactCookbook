@@ -10,7 +10,6 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-
 const RecipeCard = ({ recipe }) => {
   return (
     <Card maxW="sm">
@@ -25,7 +24,7 @@ const RecipeCard = ({ recipe }) => {
           <Heading size="md">{recipe.title}</Heading>
           <Link to={`/recipes/${recipe.id}`}>
             <Text>{recipe.shortdescription}</Text>
-            <Button colorScheme="gray" variant="solid" size="md" mt="1rem">
+            <Button colorScheme="orange" variant="solid" size="md" mt="1rem">
               Cook me
             </Button>
           </Link>
