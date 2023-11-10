@@ -78,7 +78,7 @@ const Overview = () => {
   const handleSubmit = (event) => {
     // when user presses enter, the page is prevented from reloading and then the data from the api is fetched using our get data function
     event.preventDefault();
-    getData(search, tag, skip)
+    getData(search, tag, 0)
       .then((data) => {
         setRecipes(data.sanitizedRecipes);
         setTotal(data.total);
@@ -93,12 +93,12 @@ const Overview = () => {
   const handleTagClick = (event) => {
     console.log(event.target.value);
     setTag(event.target.value);
-    getData(search, event.target.value, skip)
+    setSkip(0);
+    getData(search, event.target.value, 0)
       .then((data) => {
         // once the button is clicked the value is used to do another axios request from the api
         setRecipes(data.sanitizedRecipes);
         setTotal(data.total);
-        setSkip(0);
       })
       .catch((error) => {
         console.log(error);
